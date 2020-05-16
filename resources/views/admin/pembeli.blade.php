@@ -5,7 +5,7 @@
 	   <div >
 		   <h4 class="">
 			   <i class="icon-home position-left"></i>
-			   <span class="text-semibold">Daftar Kendaraan</span></h4>
+			   <span class="text-semibold">Daftar pembeli</span></h4>
 		   <a class="heading-elements-toggle">
 			   <i class="icon-more"></i>
 		   </a>
@@ -16,7 +16,7 @@
 			   <a href="{{route('karyawan.index')}}">Home</a>
 			   </li>
 			   <li>
-			   <a href="">Daftar Kendaraan</a>
+			   <a href="">Daftar pembeli</a>
 			   </li>
 			   <li class="active"></li>
 		   </ul>
@@ -25,7 +25,7 @@
    <!-- /header content -->
 </div>
 <div class="container-fluid">
-				   <h3 class="page-title">Kendaraan</h3>
+				   <h3 class="page-title">pembeli</h3>
 				   <div id="toastr-demo" class="panel">
 				   <div class="panel-body">
 				<div class="col-lg-12">
@@ -62,31 +62,27 @@
 <br><br><br><br>
 			   <div>
 				   <div class="col-lg-12"> 
-				   <a href="{{route('kendaraan.create')}}" class="btn btn-primary">Input Kendaraan</a>
+				   <a href="{{route('pembeli.create')}}" class="btn btn-primary">Input pembeli</a>
 				   <br>
 				   <br>
 						<table class="table table-bordered">
 							<thead class="thead-dark">
 								<tr><th>No</th>
-								<th>Nama Motor</th>
-								<th>Tahun Kendaraan</th>
-								<th>DK Motor</th>
-								<th>Status</th>
-								<th>Harga</th>	
+								<th>Nama Pembeli</th>
+								<th>Alamat</th>
+								<th>Nomor Telpon</th>	
 								<th>Aksi</th>								
 							   </tr>
 								
 							</thead>
 							<tbody>
-								@foreach($kendaraan ?? '' as $in=>$val)
+								@foreach($pembeli ?? '' as $in=>$val)
 							<tr><td>{{($in+1)}}</td>
-									<td>{{$val->NamaMotor}}</td>
-									<td>{{$val->Tahun}}</td>
-									<td>{{$val->DkMotor}}</td>
-									<td>{{$val->Status}}</td>
-									<td>{{$val->HargaMotor}}</td>
-							<td><a href="{{route('kendaraan.edit',$val->ID_Kendaraan)}}" class="btn btn-primary">Update</a>
-							<form action="{{route('kendaraan.destroy',$val->ID_Kendaraan)}}" method="POST">
+									<td>{{$val->NamaPembeli}}</td>
+									<td>{{$val->Alamat}}</td>
+									<td>{{$val->Telp}}</td>
+							<td><a href="{{route('pembeli.edit',$val->Id_Pembelian)}}" class="btn btn-primary">Update</a>
+							<form action="{{route('pembeli.destroy',$val->Id_Pembelian)}}" method="POST">
 							   @csrf
 							   @method('DELETE')
 							   <p></p>
@@ -97,7 +93,7 @@
 								@endforeach
 							</tbody>
 						</table>
-						{{$kendaraan??'' ->links()}}
+						{{$pembeli??'' ->links()}}
 				   
 				   </div> 
 				   </div>

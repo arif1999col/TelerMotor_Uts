@@ -113,8 +113,10 @@
 									<a href="{{route('karyawan.index')}}"><i class="icon-person"></i> <span>Karyawan</span></a>
 								</li>
 								<li class="active">
-									<a href="{{route('kendaraan.index')}}"><i class="icon-insert-template"></i> <span>Kendaraan</span></a>
-									
+									<a href="{{route('kendaraan.index')}}"><i class="icon-insert-template"></i> <span>Kendaraan</span></a>	
+								</li>
+								<li class="active">
+									<a href="{{route('pembeli.index')}}"><i class="icon-insert-template"></i> <span>Pembeli</span></a>	
 								</li>
 
 								<li class="active">

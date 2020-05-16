@@ -33,13 +33,13 @@
 								<dt class="col-sm-3">Nama Kelompok</dt>
 								<dd class="col-sm-3">Arif Suryanto </dd>
 								<dd class="col-sm-3">Gede Edo Quardiana</dd>
-								<dd class="col-sm-3">Niken</dd>
+								<dd class="col-sm-3">Luh Putu Niken Ayu Lestari PK</dd>
 							</dl>
 							<dl class="row">
 								<dt class="col-sm-3">NIM</dt>
 								<dd class="col-sm-3">1815051042</dd>
 								<dd class="col-sm-3">1815051108</dd>
-								<dd class="col-sm-3">1815051</dd>
+								<dd class="col-sm-3">1815051103</dd>
 							</dl>
 							<dl class="row">
 								<dt class="col-sm-3">Prodi</dt>
