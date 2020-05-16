@@ -141,6 +141,36 @@
 
 				<!-- Content area -->
                 <div class="content">
+					<div class="row">
+						<div class="col-lg-4">
+							<div class="card bg-teal-400">
+								<div class="card-body">
+									<div class="d-flex">
+										<h3 class="font-weight-semibold mb-0">{{$count = DB::table('kendaraan')->count()}}</h3>
+										<a href="{{route('kendaraan.index')}}"><span class="btn btn-primary">Kendaraan</span></a>
+									</div>
+									
+									<div>
+										Jumlah Motor Yang Ada
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="card bg-teal-400">
+								<div class="card-body">
+									<div class="d-flex">
+									<h3 class="font-weight-semibold mb-0">{{$count = DB::table('karyawan')->count()}}</h3>
+									<a href="{{route('karyawan.index')}}" ><span class="btn btn-primary">Karyawan</span></a>
+									</div>
+									
+									<div>
+										JUMLAH KARYAWAN
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
                     @yield('content')
                 </div>
 				<!-- /content area -->
