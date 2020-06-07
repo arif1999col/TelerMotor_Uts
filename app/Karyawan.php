@@ -7,14 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Karyawan extends Model
 {
-    //
     protected $table = "karyawan";
     protected $primaryKey = 'Kd_Karyawan';
     protected $fillable = ['Nama_Karyawan', 'JenisKelamin','Umur' ,'Alamat'];
     public $timestamps = false;
-
-
-    public function beli(){
-        return $this->belongsTo(Beli::class);
-    }
 }
