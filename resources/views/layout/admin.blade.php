@@ -124,7 +124,7 @@
 								
 								</li>
 								<li>
-									<a href="#"><i class="icon-insert-template"></i> <span>Form layouts</span></a>
+									<a href="{{route('beli.index')}}"><i class="icon-insert-template"></i> <span>Beli</span></a>
 								</li>
 								<!-- /forms -->
 

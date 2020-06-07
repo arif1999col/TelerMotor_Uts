@@ -30,38 +30,40 @@
 <br><br><br><br>
 			   <div>
 				   <div class="col-lg-12"> 
-				   <a href="{{route('pembeli.create')}}" class="btn btn-primary">Input pembeli</a>
+				   <a href="{{route('beli.create')}}" class="btn btn-primary">Input pembeli</a>
 				   <br>
 				   <br>
 						<table class="table table-bordered">
 							<thead class="thead-dark">
 								<tr><th>No</th>
-								<th>Nama Pembeli</th>
-								<th>Alamat</th>
-								<th>Nomor Telpon</th>	
+								<th>Kasir</th>
+								<th>Pembeli</th>
+								<th>Waktu</th>	
 								<th>Aksi</th>								
 							   </tr>
 								
 							</thead>
 							<tbody>
-								@foreach($pembeli ?? '' as $in=>$val)
+								@foreach($beli ?? '' as $in=>$val)
 							<tr><td>{{($in+1)}}</td>
-									<td>{{$val->NamaPembeli}}</td>
-									<td>{{$val->Alamat}}</td>
-									<td>{{$val->Telp}}</td>
-							<td><a href="{{route('pembeli.edit',$val->Id_Pembelian)}}" class="btn btn-primary">Update</a>
-							<form action="{{route('pembeli.destroy',$val->Id_Pembelian)}}" method="POST">
-							   @csrf
-							   @method('DELETE')
-							   <p></p>
-							   <button type="submit" class="btn btn-danger">Hapus</button>
-						   </form>
-						   </td>
+									<td>{{$val->karyawan->Nama_Karyawan}}</td>
+									<td>{{$val->pembeli->NamaPembeli}}</td>
+                                    <td>{{$val->waktu}}</td>
+                                    <td><a href="{{route('beli.edit',$val->IdBeli)}}" class="btn btn-primary">Update</a> | 
+                                    <a href="" class="btn btn-primary">Detail</a>
+                                        <form action="{{route('beli.destroy',$val->IdBeli)}}" method="POST">
+                                           @csrf
+                                           @method('DELETE')
+                                           <p></p>
+                                           <button type="submit" class="btn btn-danger">Hapus</button>
+                                       </form>
+                                       </td>
+
 									</tr>
 								@endforeach
 							</tbody>
 						</table>
-						{{$pembeli??'' ->links()}}
+						{{$beli??'' ->links()}}
 				   
 				   </div> 
 				   </div>

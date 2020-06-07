@@ -12,4 +12,8 @@ class Pembeli extends Model
     protected $primaryKey = 'Id_Pembelian';
     protected $fillable = ['NamaPembeli', 'Alamat','Telp'];
     public $timestamps = false;
+
+    public function beli(){ 
+        return $this->hasMany('App\Beli', 'Id_Pembelian', 'Id_Pembelian');
+}
 }

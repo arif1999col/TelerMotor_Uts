@@ -18,8 +18,10 @@ Route::resource('karyawan','KaryawanController');
 Route::resource('aboutme', 'AboutmeController');
 Route::resource('kendaraan','KendaraanController');
 Route::resource('pembeli','PembeliController');
+Route::resource('beli','BeliController');
 Auth::routes();
 Route::get('/home', 'KaryawanController@index')->name('home');
 Route::patch('/pembeli', 'PembeliController@store');
 Route::patch('/kendaraan', 'KendaraanController@store');
+
 

@@ -8,15 +8,6 @@ use Illuminate\Http\Request;
 
 class BeliController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(function($request, $next){
-            if(Gate::allows('Bos')) return $next($request);
-            if(Gate::allows('Admin')) return $next($request);
-            abort(403,'Anda Tidak Memiliki Hak Akses!!!');
-        });
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -24,8 +15,10 @@ class BeliController extends Controller
      */
     public function index()
     {
-           $title='Beli';
-           return view('admin.Beli');
+        $title='Beli';
+        $beli=Beli::paginate(5);
+        return view('admin.beli',compact('title','beli'));
+        
     }
 
     /**
@@ -35,7 +28,8 @@ class BeliController extends Controller
      */
     public function create()
     {
-        //
+        $title='Input Beli';
+        return view('admin.inputbeli',compact('title'));
     }
 
     /**
@@ -46,7 +40,17 @@ class BeliController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $messages = [
+            'requieed'=> 'Kolom: Huruf Harus lengkap',
+            'date'=>'Kolom Tanggal Harus Lengkap',
+            'numeric'=>'Kolom harus Nomor',
+        ];
+       $validasi = $request->validate([
+        'Kd_Karyawan' => 'required',
+        'Id_Pembelian' => 'required',
+       ],$messages);
+        Beli::create($validasi);
+        return redirect('beli');
     }
 
     /**
@@ -68,7 +72,9 @@ class BeliController extends Controller
      */
     public function edit($id)
     {
-        //
+        $title='Input beli';
+        $beli=Beli::find($id);
+        return view('admin.inputbeli',compact('title','beli'));
     }
 
     /**
@@ -80,7 +86,17 @@ class BeliController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $messages = [
+            'requieed'=> 'Kolom: Huruf Harus lengkap',
+            'date'=>'Kolom Tanggal Harus Lengkap',
+            'numeric'=>'Kolom harus Nomor',
+        ];
+       $validasi = $request->validate([
+        'Kd_Karyawan' => 'required',
+        'Id_Pembelian' => 'required',
+       ],$messages);
+       Beli::where('IdBeli',$id)->update($validasi);
+        return redirect('beli');
     }
 
     /**
@@ -91,6 +107,7 @@ class BeliController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Beli::where('IdBeli',$id)->delete();
+        return redirect('beli')->with('success','Data Terhapus');
     }
 }

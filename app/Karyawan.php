@@ -11,4 +11,8 @@ class Karyawan extends Model
     protected $primaryKey = 'Kd_Karyawan';
     protected $fillable = ['Nama_Karyawan', 'JenisKelamin','Umur' ,'Alamat'];
     public $timestamps = false;
+
+    public function beli(){ 
+        return $this->hasMany('App\Beli', 'Kd_Karyawan', 'Kd_Karyawan');
+    }
 }

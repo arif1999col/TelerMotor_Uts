@@ -19,5 +19,11 @@ class Kendaraan extends Model
         }
         return $total;
     }
+
+
+    public function detailpembeli()
+    {
+        return $this->hasMany('App\Detailpembeli', 'ID_Kendaraan', 'ID_Kendaraan');
+    }
 }
 

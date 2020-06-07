@@ -26,7 +26,6 @@
 </div>
  <div class="container-fluid">
 					<h3 class="page-title">Karyawan</h3>
-					<p>{{date('l d F Y h:i a',time()+(60*60*8))}}</p>
 					<div id="toastr-demo" class="panel">
 					<div class="panel-body">
 						<div class="col-lg-12">
