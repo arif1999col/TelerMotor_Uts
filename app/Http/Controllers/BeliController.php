@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Karyawan;
 use App\Beli;
 use App\Kendaraan;
+use App\Pembeli;
 use Illuminate\Http\Request;
 
 class BeliController extends Controller
@@ -29,7 +30,9 @@ class BeliController extends Controller
     public function create()
     {
         $title='Input Beli';
-        return view('admin.inputbeli',compact('title'));
+        $pembeli = Pembeli::get();
+        $karyawan = Karyawan::get();
+        return view('admin.inputbeli',compact('title','pembeli'));
     }
 
     /**
@@ -48,6 +51,7 @@ class BeliController extends Controller
        $validasi = $request->validate([
         'Kd_Karyawan' => 'required',
         'Id_Pembelian' => 'required',
+        'waktu' =>'required'
        ],$messages);
         Beli::create($validasi);
         return redirect('beli');
@@ -73,8 +77,9 @@ class BeliController extends Controller
     public function edit($id)
     {
         $title='Input beli';
+        $pembeli = Pembeli::get();
         $beli=Beli::find($id);
-        return view('admin.inputbeli',compact('title','beli'));
+        return view('admin.inputbeli',compact('title','beli','pembeli'));
     }
 
     /**

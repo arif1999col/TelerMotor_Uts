@@ -55,7 +55,7 @@
                                         <select id="roles" name="roles" class="form-control @error('roles') is-invalid @enderror" autocomplete="roles">
                                             <option value='["Admin"]'>Admin</option>
                                             <option value='["Menejer"]'>Menejer</option>
-                                            <option value='["Bos"]'>Bos</option>
+                                            <option value='["Kasir"]'>Kasir</option>
                                         </select>
 
                                     </div>

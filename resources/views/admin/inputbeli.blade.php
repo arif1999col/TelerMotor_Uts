@@ -41,21 +41,19 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label" required="required">Nama karyawan</label>
                                     <div class="col-lg-12">
-                                    <input type="text"  value="{{(isset($beli))?$beli->karyawan->Nama_Karyawan:old('Nama_Karyawan')}}" name="Kd_Karyawan" class="form-control">
+                                    <input type="text"  value="{{(isset($beli))?$beli->karyawan->Kd_Karyawan:old('Nama_Karyawan')}}" name="Kd_Karyawan" class="form-control">
                                     @error('Kd_Karyawan')<small style="color:red">{{$message}}</small>@enderror
                                     </div>
                                 </div>
 
-                
-
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label" required="required">Pembeli</label>
-                                    <div class="col-lg-12">
-                                    <input type="text"  value="{{(isset($beli))?$beli->Id_Pembelian:old('Pembeli')}}" name="Id_Pembelian" class="form-control">
-                                    @error('Id_Pembelian')<small style="color:red">{{$message}}</small>@enderror
+                                <div class="form-group">
+                                      <select name="Id_Pembelian" id="Id_Pembelian" class="form-control">
+                                        <option value="" name="">Pilih Pembeli</option>
+                                            @foreach($pembeli as $val)
+                                                 <option value=" {{$val->Id_Pembelian}}">{{ $val->NamaPembeli }} </option>
+                                            @endforeach
+                                      </select>
                                     </div>
-                                </div>
-
 
                                 <div class="text-right">
                                     <button type="submit" class="btn btn-primary">SIMPAN <i class="icon-paperplane ml-2"></i></button>
